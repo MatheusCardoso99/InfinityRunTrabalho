@@ -244,10 +244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5cc2ce0e580ff4fac71a025fb8a2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chaoDestruido: 0
-  _chaoTamanho: 0
-  _chaoVelocidade: 0
-  _chaoPrefab: {fileID: 0}
+  _chaoDestruido: -38
+  _chaoTamanho: 40
+  _chaoVelocidade: 5
+  _chaoPrefab: {fileID: 1845127207753912090, guid: 424ed8d5957887a4e8c959f919ba2b1e, type: 3}
 --- !u!4 &2018585407
 Transform:
   m_ObjectHideFlags: 0
@@ -277,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7442678722631678424, guid: 424ed8d5957887a4e8c959f919ba2b1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7442678722631678424, guid: 424ed8d5957887a4e8c959f919ba2b1e, type: 3}
       propertyPath: m_LocalPosition.y

@@ -31,7 +31,7 @@ public class RepetirChao : MonoBehaviour
                 }
             }
 
-            if(transform.position.x < _gameController._chaoDestruido)
+            if(transform.position.x < _gameController._chaoDestruido)//D
             {
                 Destroy(this.gameObject);
             }

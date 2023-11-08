@@ -73,3 +73,10 @@ InitTestScene*.unity
 
 MatheusC_InfinityRun/Library/PackageCache/
 MatheusC_InfinityRun/Temp
+MatheusC_InfinityRun/Library/ArtifactDB
+*.json
+*.json
+MatheusC_InfinityRun/Library/PackageManager/ProjectCache
+MatheusC_InfinityRun/Library/SourceAssetDB
+MatheusC_InfinityRun/Logs/shadercompiler-UnityShaderCompiler.exe0.log
+MatheusC_InfinityRun/UserSettings/Layouts/default-2022.dwlt

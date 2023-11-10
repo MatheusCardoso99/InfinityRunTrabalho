@@ -25,7 +25,7 @@ public class DeslocamentoBG : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void  FixedUpdate()//Deslocamento de imagens de montanha do fundo
     {
         offset += offsetIncremento;
         objetoMaterial.SetTextureOffset("_MainTex", new Vector2(offset * offsetVelocidade, 0));

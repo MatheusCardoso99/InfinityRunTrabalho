@@ -28,6 +28,7 @@ public class CoinContoller : MonoBehaviour
         if (collision.tag == "Player")
         {
             _gameController.Pontos(1);//pega os pontos para mostrar em tela
+            _gameController._fxGame.PlayOneShot(_gameController._fxMoedaColetada);//Tocando o efeito do pulo apenas uma vez
             Debug.Log("Pegou a moeda");
             Destroy(this.gameObject);
         }

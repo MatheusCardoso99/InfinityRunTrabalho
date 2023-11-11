@@ -17,11 +17,14 @@ public class PlayerController : MonoBehaviour
     public LayerMask LayerGroud;
     public Transform checkGround;
     public string isGroudBool = "eChao";
+
+    private GameController _gameController;
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+        _gameController = FindObjectOfType(typeof(GameController)) as GameController;
         MovimentaPlayer();
     }
 
@@ -59,6 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrouded)
         {
+            _gameController._fxGame.PlayOneShot(_gameController._fxJump);//Tocando o efeito do pulo apenas uma vez
             rig.velocity = Vector2.zero;
             rig.AddForce(new Vector2(0, jumpForce));
         }

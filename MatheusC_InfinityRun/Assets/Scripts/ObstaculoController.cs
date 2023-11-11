@@ -47,6 +47,7 @@ public class ObstaculoController : MonoBehaviour
             else
             {
                 _GameController._txtVidas.text = _GameController._vidasPlayer.ToString();
+                _GameController._fxGame.PlayOneShot(_GameController._fxColisao);//Tocando o efeito do pulo apenas uma vez
                 Debug.Log("Perdeu uma vida");
                 _CameraShaker.ShakeIt();//Tromor camera
             }

@@ -21,20 +21,27 @@ public class GameController : MonoBehaviour
 
     //Propriedade da Moeda
     [Header("Configuracao do Coin/Moeda")]
-    public float      _coinTempo;
-    public GameObject _coinPrefab;
+    public float        _coinTempo;
+    public GameObject   _coinPrefab;
 
     //Propriedade da interface
     [Header("Configuracao de UI(interface de usuario)")]
-    public int      _pontosPlayer;
-    public Text     _txtPontos;
-    public int      _vidasPlayer;
-    public Text     _txtVidas;
-    public Text     _txtMetros;
+    public int          _pontosPlayer;
+    public Text         _txtPontos;
+    public int          _vidasPlayer;
+    public Text         _txtVidas;
+    public Text         _txtMetros;
 
     //Propriedade de distancia
     [Header("Controle de distancia")]
-    public int _metrosPercorridos = 0;
+    public int           _metrosPercorridos = 0;
+
+    //Propriedade de Son
+    [Header("Controle de Sons e Efeitos")]
+    public AudioSource  _fxGame;
+    public AudioClip    _fxMoedaColetada;
+    public AudioClip    _fxJump;
+    public AudioClip    _fxColisao;
 
 
     // Start is called before the first frame update
@@ -51,13 +58,15 @@ public class GameController : MonoBehaviour
         
     }
 
-    IEnumerator SpawnObstaculo()//Carrega obstaculo
+    IEnumerator SpawnObstaculo()//Carrega obstaculo E moedas
     {
         yield return new WaitForSeconds(_ObstaculoTempo);
 
         GameObject ObjetoObstaculoTemp = Instantiate(_obstaculoPrefab);
         StartCoroutine("SpawnObstaculo");
 
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine("SpawnCoin");
     }
 
     IEnumerator SpawnCoin()//Carrega moeda com qtd aleatoria
@@ -82,6 +91,15 @@ public class GameController : MonoBehaviour
     {
         _metrosPercorridos++;//Soma mais um
         _txtMetros.text = _metrosPercorridos.ToString() + " M";
+
+        //Compara o resto da divisão for igual a zero 
+        //Para deixar o jogo mais rapido pela distancia percorrida
+        if ( (_metrosPercorridos % 100) == 0)
+        {
+            _chaoVelocidade += 0.5f; //Soma com ela mesma + o numero
+            _ObstaculoTempo += 0.15f;
+            _obstaculoVelocidade += 0.15f;
+        }
     }
 
 }

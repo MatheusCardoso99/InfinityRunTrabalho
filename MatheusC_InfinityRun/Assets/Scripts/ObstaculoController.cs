@@ -38,9 +38,21 @@ public class ObstaculoController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Tocou no obstaculo");
-            _CameraShaker.ShakeIt();
+            _GameController._vidasPlayer--;//Diminui uma vida
+            if (_GameController._vidasPlayer <= 0)
+            {
+                Debug.Log("Fim do jogo");
+                _GameController._txtVidas.text = "0";
+            }
+            else
+            {
+                _GameController._txtVidas.text = _GameController._vidasPlayer.ToString();
+                Debug.Log("Perdeu uma vida");
+                _CameraShaker.ShakeIt();//Tromor camera
+            }
+            
         }
+
     }
 
 

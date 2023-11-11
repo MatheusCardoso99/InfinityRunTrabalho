@@ -8,12 +8,13 @@ public class DeslocamentoBG : MonoBehaviour
 
     private Renderer objetoRender;
     private Material objetoMaterial;
-    public float offset; //Desllocamento
+    public float offset; 
     public float offsetIncremento;
     public float offsetVelocidade;
 
     public string sortingLayer;
     public int orderinlayer;
+    //Desllocamento
     void Start()
     {
         objetoRender = GetComponent<MeshRenderer>();

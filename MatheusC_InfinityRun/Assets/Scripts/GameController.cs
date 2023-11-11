@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -23,6 +24,17 @@ public class GameController : MonoBehaviour
     public float      _coinTempo;
     public GameObject _coinPrefab;
 
+    //Propriedade da interface
+    [Header("Configuracao de UI(interface de usuario)")]
+    public int      _pontosPlayer;
+    public Text     _txtPontos;
+    public int      _vidasPlayer;
+    public Text     _txtVidas;
+    public Text     _txtMetros;
+
+    //Propriedade de distancia
+    [Header("Controle de distancia")]
+    public int _metrosPercorridos = 0;
 
 
     // Start is called before the first frame update
@@ -30,6 +42,7 @@ public class GameController : MonoBehaviour
     {
         StartCoroutine("SpawnObstaculo");//Chamada
         StartCoroutine("SpawnCoin");//Chamada
+        InvokeRepeating("DistanciaPercorrida", 0f, 0.2f);//Chamada invocada varias vezes 
     }
 
     // Update is called once per frame
@@ -57,6 +70,18 @@ public class GameController : MonoBehaviour
             _objetoSpawn.transform.position = new Vector3(_objetoSpawn.transform.position.x, _objetoSpawn.transform.position.y, 0);
 
         }
+    }
+
+    public void Pontos(int _qtdPontos) //Pega os pontos e coloca na tela
+    {
+        _pontosPlayer += _qtdPontos;
+        _txtPontos.text = _pontosPlayer.ToString();
+    }
+
+    void DistanciaPercorrida()//Reponsavel pela soma da distancia
+    {
+        _metrosPercorridos++;//Soma mais um
+        _txtMetros.text = _metrosPercorridos.ToString() + " M";
     }
 
 }

@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class CoinContoller : MonoBehaviour
 {
-
-    private Rigidbody2D _moedasRB2D;
-
+    private GameController  _gameController;
+    private Rigidbody2D     _moedasRB2D;
+    
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        _gameController = FindAnyObjectByType(typeof(GameController)) as GameController;
 
         _moedasRB2D = GetComponent<Rigidbody2D>();
         _moedasRB2D.velocity = new Vector2(-6f,0);
-
     }
 
     // Update is called once per frame
@@ -27,6 +27,7 @@ public class CoinContoller : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            _gameController.Pontos(1);//pega os pontos para mostrar em tela
             Debug.Log("Pegou a moeda");
             Destroy(this.gameObject);
         }

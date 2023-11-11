@@ -12,7 +12,7 @@ public class CameraShaker : MonoBehaviour
     public Camera mainCamera;
 
   
-
+    //Vibração da camera
     public void ShakeIt()
     {
         cameraInitialPosition = mainCamera.transform.position;
@@ -20,7 +20,7 @@ public class CameraShaker : MonoBehaviour
         Invoke("StopCameraShaking", ShakeTime);
     }
 
-    void StartCameraShaking()
+    void StartCameraShaking()//Começa a vibracao
     {
         float cameraShakingOffsetX = Random.value * ShakeMagnitude * 2 - ShakeMagnitude;
         float cameraShakingOffsetY = Random.value * ShakeMagnitude * 2 - ShakeMagnitude;
@@ -32,7 +32,7 @@ public class CameraShaker : MonoBehaviour
         mainCamera.transform.position = cameraIntermediatePosition;
     }
 
-    void StopCameraShaking()
+    void StopCameraShaking()//Para a vibracao
     {
         CancelInvoke("StartCameraShaking");
         mainCamera.transform.position = cameraInitialPosition;

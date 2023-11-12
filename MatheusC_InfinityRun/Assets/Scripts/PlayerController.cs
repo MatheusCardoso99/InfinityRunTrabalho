@@ -19,12 +19,14 @@ public class PlayerController : MonoBehaviour
     public string isGroudBool = "eChao";
 
     private GameController _gameController;
+    
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
         _gameController = FindObjectOfType(typeof(GameController)) as GameController;
+
         MovimentaPlayer();
     }
 

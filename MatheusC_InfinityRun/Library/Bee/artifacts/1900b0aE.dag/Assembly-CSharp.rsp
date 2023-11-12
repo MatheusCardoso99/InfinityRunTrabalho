@@ -377,6 +377,8 @@
 "Assets/Scripts/CoinContoller.cs"
 "Assets/Scripts/DeslocamentoBG.cs"
 "Assets/Scripts/GameController.cs"
+"Assets/Scripts/LoserMenu.cs"
+"Assets/Scripts/MenuPrincipalManager.cs"
 "Assets/Scripts/ObstaculoController.cs"
 "Assets/Scripts/PauseMenu.cs"
 "Assets/Scripts/PlayerController.cs"

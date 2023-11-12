@@ -11,6 +11,7 @@ public class ObstaculoController : MonoBehaviour
 
     private GameController  _GameController;
     private CameraShaker    _CameraShaker;
+    private LoserMenu       _LoserMenu;
 
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class ObstaculoController : MonoBehaviour
 
         _GameController = FindObjectOfType(typeof(GameController)) as GameController; 
         _CameraShaker = FindObjectOfType(typeof(CameraShaker)) as CameraShaker;
+        _LoserMenu = FindObjectOfType(typeof(LoserMenu)) as LoserMenu;
     }
 
     // Update is called once per frame
@@ -39,10 +41,13 @@ public class ObstaculoController : MonoBehaviour
         if (collision.tag == "Player")
         {
             _GameController._vidasPlayer--;//Diminui uma vida
+           
             if (_GameController._vidasPlayer <= 0)
             {
                 Debug.Log("Fim do jogo");
                 _GameController._txtVidas.text = "0";
+
+                _LoserMenu.Loser();
             }
             else
             {

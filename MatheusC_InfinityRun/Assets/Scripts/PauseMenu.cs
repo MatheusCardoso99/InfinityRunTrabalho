@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
 
     public Transform    _pauseMenu;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class PauseMenu : MonoBehaviour
             if (_pauseMenu.gameObject.activeSelf)
             {
                 _pauseMenu.gameObject.SetActive(false);
-                Time.timeScale = 1;//Pause o jogo
+                Time.timeScale = 1;//Executa o jogo
             }
             else
             {
@@ -38,7 +39,7 @@ public class PauseMenu : MonoBehaviour
         if (_pauseMenu.gameObject.activeSelf)
         {
             _pauseMenu.gameObject.SetActive(false);
-            Time.timeScale = 1;//Pause o jogo
+            Time.timeScale = 1;//Executa o jogo
         }
         else
         {
@@ -46,6 +47,12 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0;//Pause o jogo
         }
     }
-    
+
+    public void SairJogo()
+    {
+        Debug.Log("Sair do Jogo");
+        Application.Quit();
+    }
+
 }
 

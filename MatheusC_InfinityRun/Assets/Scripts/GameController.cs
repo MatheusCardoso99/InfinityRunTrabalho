@@ -43,12 +43,19 @@ public class GameController : MonoBehaviour
     public AudioClip    _fxJump;
     public AudioClip    _fxColisao;
 
+    //Propriedade do Inimigo
+    [Header("Configuracao do Inimigo")]
+    public float        _InimigoTempo;
+    public GameObject   _InimigoPrefab;
+    public float        _InimigoVelocidade;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine("SpawnInimigo");//Chamada
         StartCoroutine("SpawnObstaculo");//Chamada
-        StartCoroutine("SpawnCoin");//Chamada
+        StartCoroutine("SpawnCoin");//Chamada        
         InvokeRepeating("DistanciaPercorrida", 0f, 0.2f);//Chamada invocada varias vezes 
     }
 
@@ -63,10 +70,18 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(_ObstaculoTempo);
 
         GameObject ObjetoObstaculoTemp = Instantiate(_obstaculoPrefab);
-        StartCoroutine("SpawnObstaculo");
+        StartCoroutine("SpawnObstaculo");        
 
         yield return new WaitForSeconds(1.5f);
         StartCoroutine("SpawnCoin");
+    }
+
+    IEnumerator SpawnInimigo()//Carrega Inimigo
+    {
+        yield return new WaitForSeconds(_InimigoTempo);
+
+        GameObject ObjetoInimigoTemp = Instantiate(_InimigoPrefab);
+        StartCoroutine("SpawnInimigo");
     }
 
     IEnumerator SpawnCoin()//Carrega moeda com qtd aleatoria
@@ -96,9 +111,10 @@ public class GameController : MonoBehaviour
         //Para deixar o jogo mais rapido pela distancia percorrida
         if ( (_metrosPercorridos % 100) == 0)
         {
-            _chaoVelocidade += 0.5f; //Soma com ela mesma + o numero
-            _ObstaculoTempo += 0.15f;
-            _obstaculoVelocidade += 0.15f;
+            _chaoVelocidade += 0.10f; //Soma com ela mesma + o numero
+            _ObstaculoTempo += 0.30f;
+            _obstaculoVelocidade += 0.30f;
+            _InimigoVelocidade += 0.30f;
         }
     }
 
